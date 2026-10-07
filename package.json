@@ -4,7 +4,12 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "eval:run": "pnpm eval:contain && pnpm eval:g-eval && pnpm eval:faithfulness",
+    "eval:contain": "pnpm with-env tsx src/evals/contain.ts",
+    "eval:faithfulness": "pnpm with-env tsx src/evals/faithfulness.ts",
+    "eval:g-eval": "pnpm with-env tsx src/evals/g-eval.ts",
+    "start": "pnpm with-env tsx src/index.ts",
+    "with-env": "dotenv run -f .env --"
   },
   "keywords": [],
   "author": "",
@@ -27,6 +32,10 @@
     "@anvia/core": "^1.5.0",
     "@anvia/lens": "^1.2.0",
     "@anvia/openai": "^1.1.5",
+    "@anvia/sandbox": "^1.1.4",
+    "@anvia/studio": "^1.2.4",
+    "@tavily/core": "^0.7.8",
+    "dotenv": "^18.0.3",
     "dotenv-cli": "^11.0.0",
     "zod": "^4.6.5"
   }
